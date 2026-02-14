@@ -1,0 +1,149 @@
+.skills-section {
+  padding: 110px 20px;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ================= Glows ================= */
+.skills-glow {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  filter: blur(150px);
+  opacity: 0.35;
+  border-radius: 50%;
+}
+
+.skills-glow.purple {
+  background: #7c3aed;
+  top: -100px;
+  left: -100px;
+}
+
+.skills-glow.green {
+  background: #22c55e;
+  bottom: -100px;
+  right: -100px;
+}
+
+/* ================= Title ================= */
+.skills-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #7c3aed, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 70px;
+}
+
+/* ================= Groups Layout ================= */
+.skills-groups {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ================= Group Card ================= */
+.skill-group {
+  position: relative;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 20px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+  transition: all 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+/* Bottom glow under big boxes */
+.skill-group::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -20px;
+  height: 25px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(124, 58, 237, 0.8) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* Hover big box */
+.skill-group:hover::after {
+  opacity: 1;
+}
+
+.skill-group:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 20px currentColor;
+  border: 1px solid currentColor;
+}
+
+/* Big box titles */
+.skill-group h3 {
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+
+/* ================= Icons ================= */
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+  transition: all 0.35s ease;
+  animation: float 6s ease-in-out infinite;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* Hover small skill box */
+.skill-icon:hover {
+  transform: translateY(-4px) scale(1.07);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 8px currentColor, 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .skills-title { font-size: 2.2rem; }
+  .skills-subtitle { font-size: 0.95rem; margin-bottom: 50px; }
+  .skill-group { padding: 22px; }
+}
