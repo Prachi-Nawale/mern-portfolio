@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 
+const sections = ["home", "about", "projects", "skills"];
+
 function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-
-  const sections = ["home", "about", "projects", "skills"];
 
   useEffect(() => {
     const handleScroll = () => {
